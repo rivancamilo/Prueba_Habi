@@ -1,5 +1,66 @@
 TIPO_INMUEBLE|ESTADO|CANTIDAD
-casa|aguascalientes|1
-departamento|df  cdmx|1
-departamento|jalisco|1
-departamento|méxico|1
+casa|aguascalientes|58
+casa|baja california|288
+casa|baja california sur|89
+casa|campeche|32
+casa|chiapas|38
+casa|chihuahua|43
+casa|coahuila de zaragoza|96
+casa|colima|15
+casa|df  cdmx|5043
+casa|durango|18
+casa|guanajuato|103
+casa|guerrero|118
+casa|hidalgo|24
+casa|jalisco|767
+casa|méxico|918
+casa|michoacán de ocampo|22
+casa|morelos|87
+casa|nayarit|50
+casa|nuevo león|692
+casa|oaxaca|42
+casa|puebla|302
+casa|querétaro|862
+casa|quintana roo|2049
+casa|san luis potosí|106
+casa|sinaloa|85
+casa|sonora|40
+casa|tabasco|16
+casa|tamaulipas|101
+casa|tlaxcala|2
+casa|veracruz de ignacio de la llave|204
+casa|yucatán|1156
+casa|zacatecas|1
+departamento|aguascalientes|223
+departamento|baja california|495
+departamento|baja california sur|210
+departamento|campeche|83
+departamento|chiapas|241
+departamento|chihuahua|289
+departamento|coahuila de zaragoza|485
+departamento|colima|154
+departamento|df  cdmx|1398
+departamento|durango|116
+departamento|guanajuato|493
+departamento|guerrero|53
+departamento|hidalgo|209
+departamento|jalisco|1626
+departamento|méxico|1853
+departamento|michoacán de ocampo|267
+departamento|morelos|620
+departamento|nayarit|41
+departamento|nuevo león|1184
+departamento|oaxaca|73
+departamento|puebla|565
+departamento|querétaro|1728
+departamento|quintana roo|537
+departamento|san luis potosí|230
+departamento|sinaloa|191
+departamento|sonora|164
+departamento|tabasco|82
+departamento|tamaulipas|197
+departamento|tlaxcala|38
+departamento|veracruz|1
+departamento|veracruz de ignacio de la llave|567
+departamento|yucatán|2106
+departamento|zacatecas|14
