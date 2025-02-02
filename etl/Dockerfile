@@ -1,12 +1,17 @@
 FROM python:latest
 
-COPY .  ./app
+WORKDIR /proyectoETL
 
-WORKDIR /app
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-#instalamos todas las librerias necesarias
-RUN pip install mysql-connector-python pymysql pandas SQLAlchemy
 
-VOLUME "/app/data"
+COPY . .
 
-CMD [ "python", "./main.py" ]
+VOLUME "./etl/source/feed.xml"
+VOLUME "./etl/target/"
+VOLUME [ "/data" ]
+
+#EXPOSE 8000
+
+CMD [ "python", "main.py" ]
