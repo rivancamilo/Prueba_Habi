@@ -1,4 +1,5 @@
 from etl.preprocesamiento import extraccion_xml
+from etl.reporte import *
 
 def main():
     rutaSource = './source/feed.xml'

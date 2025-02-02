@@ -33,4 +33,10 @@ class ConexionDB:
                 print(f"La BD {self.DATABASE} a la que se está conectando NO existe")
             else:
                 print(err)
-                
+    
+    
+    
+    
+    
+    
+    
