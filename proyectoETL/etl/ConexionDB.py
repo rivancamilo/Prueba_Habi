@@ -49,5 +49,29 @@ class ConexionDB:
     def commit(self):
         self.conn.commit()
     
-    
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Método para insertamos un nuevo usuario en el cual devolvemos el id del usuario
+    def insert_usuario(self, correo_contacto):
+        
+        # ------------------------------------------------------------------
+        # Validamos si el usuario ya existe con ese correo
+        sql_query = "SELECT idusuario FROM usuarios WHERE correo_contacto = %s"
+        cursor = self.conn.cursor()
+        cursor.execute(sql_query, (correo_contacto,))
+        resultado = cursor.fetchone()
+        
+        if resultado:
+            print(f"\t *****  El correo {correo_contacto} ya existe con idusuario {resultado[0]}")
+            return resultado[0]  
+        
+        # ------------------------------------------------------------------
+        # Query para insertar un nuevo usuario
+        query = """
+            INSERT INTO usuarios (correo_contacto) 
+            VALUES (%s)
+        """
+        usuario_id = self.ejecutar_query(query, (correo_contacto,))
+        self.commit()
+        return usuario_id
     
