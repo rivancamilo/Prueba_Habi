@@ -38,6 +38,6 @@ def generar_reporte_propiedades_x_tipo_y_estado(rutaTarget):
     df = pd.DataFrame(resultado, columns=['TIPO_INMUEBLE', 'ESTADO','CANTIDAD'])
     df.to_csv(f'{rutaTarget}propiedades_x_tipo_y_estado.csv', sep='|', index=False, encoding='utf-8')
     
-    #conexion.cerrar_conexion()
+    conexion.cerrar_conexion()
 
 
