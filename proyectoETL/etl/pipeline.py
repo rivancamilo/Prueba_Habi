@@ -19,6 +19,12 @@ def carga_datos(usuarios,propiedades):
         id_UserBD = conexion.insert_usuario(rowUser.correo_contacto)
         print(f'Hemos insertado el correo {rowUser.correo_contacto} con id{id_UserBD}')
         
+        id_propiedadBD = conexion.insert_propiedad(rowPropiedad.estado, rowPropiedad.ciudad, rowPropiedad.colonia, 
+                                                   rowPropiedad.calle, rowPropiedad.numero_exterior, rowPropiedad.tipo_inmueble, 
+                                                   rowPropiedad.transaccion, rowPropiedad.precio, rowPropiedad.codigo_proveedor, 
+                                                   rowPropiedad.telefono_contacto, id_UserBD)
+        print('\n************************************************************')
+        print(f'Hemos insertado una nueva propiedad con id: {id_propiedadBD}')
     
     # ------------------------------------------------------------------   
     # Cerramos la conexión de la base de datos

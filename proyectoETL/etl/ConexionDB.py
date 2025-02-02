@@ -108,3 +108,42 @@ class ConexionDB:
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
+    # Método contar el numero de usuario que están registrados
+    def count_usuarios(self):
+        query = "SELECT COUNT(DISTINCT idusuario) FROM usuarios"
+        cursor = self.conn.cursor()
+        cursor.execute(query)
+        result = cursor.fetchone()
+        return result[0] if result else 0
+    
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Método para identificar cuantas propiedades tiene cada usuario
+    def count_propiedades_x_usuario(self):
+        query = """
+            SELECT COUNT(p.idpropiedad),p.idusuario,u.correo_contacto FROM propiedades p
+            inner join usuarios u
+            on p.idusuario = u.idusuario
+            GROUP BY p.idusuario
+        """
+        
+        cursor = self.conn.cursor()
+        cursor.execute(query)
+        results = cursor.fetchall()
+        return results
+    
+    
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Método para identificar cuantas casas y cuantos departamentos hay por estado
+    def count_propiedades_x_tipo_y_estado(self):
+        query = """
+            SELECT tipo_inmueble, estado, COUNT(*) 
+            FROM propiedades
+            GROUP BY tipo_inmueble, estado
+        """
+        cursor = self.conn.cursor()
+        cursor.execute(query)
+        results = cursor.fetchall()
+        return results
+    
