@@ -90,3 +90,11 @@ class ConexionDB:
                                                transaccion, precio, codigo_proveedor, telefono_contacto, idusuario))
         self.commit()
         return propiedad_id
+    
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Método para cerrar la conexión en la base de datos
+    def cerrar_conexion(self):
+        if self.conn:
+            self.conn.close()
+            print("La conexión se cerró, correctamente ")
