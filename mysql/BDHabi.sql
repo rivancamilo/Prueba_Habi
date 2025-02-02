@@ -1,42 +1,65 @@
-create database BDHabi;
+use bdhabi;
 
-create database BDHabi-character-set utf8
+--
+-- Estructura de tabla para la tabla propiedades
+--
 
-use BDHabi;
-
-
--- -----------------------------------------------------
--- Table propiedades
--- -----------------------------------------------------
-DROP TABLE IF EXISTS propiedades ;
-
-CREATE TABLE IF NOT EXISTS propiedades (
-  idpropiedad INT NOT NULL AUTO_INCREMENT,
-  estado VARCHAR(100) NOT NULL,
-  ciudad VARCHAR(50) NOT NULL,
-  colonia VARCHAR(50) NOT NULL,
-  calle VARCHAR(250) NOT NULL,
-  numero_exterior INT NOT NULL,
-  tipo_inmueble VARCHAR(70) NOT NULL,
-  transaccion VARCHAR(70) NOT NULL,
-  precio DECIMAL NOT NULL,
-  codigo_proveedor INT NOT NULL,
-  telefono_contacto VARCHAR(45) NOT NULL,
-  idusuario INT NOT NULL,
-  PRIMARY KEY (idpropiedad)
-)ENGINE = InnoDB;
+CREATE TABLE propiedades (
+  idpropiedad int(11) NOT NULL,
+  estado varchar(100) NOT NULL,
+  ciudad varchar(50) NOT NULL,
+  colonia varchar(50) NOT NULL,
+  calle varchar(250) DEFAULT NULL,
+  numero_exterior varchar(50) DEFAULT NULL,
+  tipo_inmueble varchar(70) NOT NULL,
+  transaccion varchar(70) NOT NULL,
+  precio decimal(10,0) NOT NULL,
+  codigo_proveedor int(11) NOT NULL,
+  telefono_contacto varchar(45) NOT NULL,
+  idusuario int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
--- -----------------------------------------------------
--- Table usuarios
--- -----------------------------------------------------
-DROP TABLE IF EXISTS usuarios ;
+--
+-- Estructura de tabla para la tabla usuarios
+--
+
+CREATE TABLE usuarios (
+  idusuario int(11) NOT NULL,
+  correo_contacto varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
-CREATE TABLE IF NOT EXISTS usuarios (
-  idusuario INT NOT NULL AUTO_INCREMENT,
-  correo_contacto VARCHAR(150) NOT NULL,
-  PRIMARY KEY (idusuario)
-)ENGINE = InnoDB;
+--
+-- Indices de la tabla propiedades
+--
+ALTER TABLE propiedades
+  ADD PRIMARY KEY (idpropiedad),
+  ADD KEY idusuario (idusuario);
+
+--
+-- Indices de la tabla usuarios
+--
+ALTER TABLE usuarios
+  ADD PRIMARY KEY (idusuario);.
 
 
+--
+-- AUTO_INCREMENT de la tabla propiedades
+--
+ALTER TABLE propiedades
+  MODIFY idpropiedad int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+--
+-- AUTO_INCREMENT de la tabla usuarios
+--
+ALTER TABLE usuarios
+  MODIFY idusuario int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+
+
+--
+-- Filtros para la tabla propiedades
+--
+ALTER TABLE propiedades
+  ADD CONSTRAINT propiedades_ibfk_1 FOREIGN KEY (idusuario) REFERENCES usuarios (idusuario);
+COMMIT;
