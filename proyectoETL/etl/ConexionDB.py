@@ -75,3 +75,18 @@ class ConexionDB:
         self.commit()
         return usuario_id
     
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Método para insertar una nueva propiedad
+    def insert_propiedad(self, estado, ciudad, colonia, calle, numero_exterior, tipo_inmueble, 
+                         transaccion, precio, codigo_proveedor, telefono_contacto, idusuario):
+        
+        query = """
+            INSERT INTO propiedades (estado, ciudad, colonia, calle, numero_exterior, tipo_inmueble, 
+                                    transaccion, precio, codigo_proveedor, telefono_contacto, idusuario) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        propiedad_id = self.ejecutar_query(query, (estado, ciudad, colonia, calle, numero_exterior, tipo_inmueble, 
+                                               transaccion, precio, codigo_proveedor, telefono_contacto, idusuario))
+        self.commit()
+        return propiedad_id
