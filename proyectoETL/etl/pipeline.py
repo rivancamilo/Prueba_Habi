@@ -10,6 +10,17 @@ conexion = ConexionDB( USER = config('DB_USER')
                         , HOST = config('DB_HOST')
                         , DATABASE = config('DB_NAME') )
 
-print(conexion)
-
-
+# ------------------------------------------------------------------
+# ------------------------------------------------------------------
+# Insertamos los datos en la base de datos
+def carga_datos(usuarios,propiedades):
+    for (_, rowUser), (_, rowPropiedad) in zip(usuarios.iterrows(), propiedades.iterrows()):
+        
+        id_UserBD = conexion.insert_usuario(rowUser.correo_contacto)
+        print(f'Hemos insertado el correo {rowUser.correo_contacto} con id{id_UserBD}')
+        
+    
+    # ------------------------------------------------------------------   
+    # Cerramos la conexión de la base de datos
+    conexion.cerrar_conexion()
+        

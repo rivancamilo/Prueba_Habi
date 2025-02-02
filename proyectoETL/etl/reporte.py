@@ -12,4 +12,4 @@ conexion = ConexionDB( USER = config('DB_USER')
                         , HOST = config('DB_HOST')
                         , DATABASE = config('DB_NAME') )
 
-print(conexion)
+
