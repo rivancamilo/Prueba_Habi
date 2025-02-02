@@ -8,9 +8,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-VOLUME "./etl/source/feed.xml"
-VOLUME "./etl/target/"
-VOLUME [ "/data" ]
+VOLUME "./proyectoETL/source/feed.xml"
+VOLUME "./proyectoETL/target/"
 
 #EXPOSE 8000
 
