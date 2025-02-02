@@ -35,8 +35,19 @@ class ConexionDB:
                 print(err)
     
     
-    
-    
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Método para ejecutar querys
+    def ejecutar_query(self, query, params):
+        cursor = self.conn.cursor()
+        cursor.execute(query, params)
+        return cursor.lastrowid
+
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Método para confirmar los cambios en la base de datos
+    def commit(self):
+        self.conn.commit()
     
     
     
