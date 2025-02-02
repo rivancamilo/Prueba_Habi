@@ -9,11 +9,12 @@ class ConexionDB:
     # ------------------------------------------------------------------
     # Definimos el método constructor con los parámetros 
     # iniciales para establecer una conexión con Mysql
-    def __init__(self, USER, PASS, HOST, DATABASE):
+    def __init__(self, USER, PASS, HOST,PORT, DATABASE):
         self.USER = USER
         self.PASS = PASS
         self.HOST = HOST
         self.DATABASE = DATABASE
+        self.PORT = PORT
         self.conn = None
         
         try:

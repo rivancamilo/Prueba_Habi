@@ -7,10 +7,11 @@ from decouple import config
 # ------------------------------------------------------------------
 # Creamos una instancia de la clase ConexiónDB
 
-conexion = ConexionDB( USER = config('DB_USER')
-                        , PASS = config('DB_PASSWORD_ROOT')
-                        , HOST = config('DB_HOST')
-                        , DATABASE = config('DB_NAME') )
+conexion = ConexionDB( USER = 'root'
+                        , PASS = 'root'
+                        , HOST = 'mysql'
+                        , PORT = '3306'
+                        , DATABASE = 'bdhabi' )
 
 
 def generar_reporte_usuarios(rutaTarget):
@@ -37,6 +38,6 @@ def generar_reporte_propiedades_x_tipo_y_estado(rutaTarget):
     df = pd.DataFrame(resultado, columns=['TIPO_INMUEBLE', 'ESTADO','CANTIDAD'])
     df.to_csv(f'{rutaTarget}propiedades_x_tipo_y_estado.csv', sep='|', index=False, encoding='utf-8')
     
-    conexion.cerrar_conexion()
+    #conexion.cerrar_conexion()
 
 

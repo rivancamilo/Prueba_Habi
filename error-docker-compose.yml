@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  etl_service:
+    build: ./proyectoETL
+    container_name: etl_container
+    command: "python main.py"
+    volumes:
+      - ./proyectoETL/etl/source/feed.xml:/proyectoETL/etl/source/feed.xml
+      - ./proyectoETL/etl/target:/proyectoETL/etl/target
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123456789
+      - MYSQL_DATABASE=bdhabi
+    networks:
+      - etl_network
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bdhabi
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/BDHabi.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - etl_network
+
+networks:
+  etl_network:
+
+volumes:
+  mysql_data:
