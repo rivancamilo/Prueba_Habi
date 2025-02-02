@@ -8,11 +8,13 @@ def main():
     
     usuarios,propiedades = extraccion_xml(rutaSource)
     carga_datos(usuarios,propiedades)
-    
-    print('Hola, Mundo Docker!')
-    print(usuarios)
-    
+    generar_reporte_usuarios(rutaTarget)
+    generar_reporte_propiedades_x_usuario(rutaTarget)
+    generar_reporte_propiedades_x_tipo_y_estado(rutaTarget)
     
 
 if __name__ == "__main__":
     main()
+    
+    
+    
