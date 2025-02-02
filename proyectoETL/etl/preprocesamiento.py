@@ -21,8 +21,8 @@ def extraccion_xml(archivo):
     
     arbol = et.parse(archivo) 
     data2 = arbol.findall('listing')
-    #for indice,registro in enumerate(data2, start=1):
-    for registro,indice in zip(data2, range(1, 5)): ###para pruebas
+    for indice,registro in enumerate(data2, start=1):
+    #for registro,indice in zip(data2, range(1, 5)): ###para pruebas
         estado = limpiar_texto(registro.find('state').text)
         ciudad = limpiar_texto(registro.find('city').text)
         colonia = limpiar_texto(registro.find('colony').text)
